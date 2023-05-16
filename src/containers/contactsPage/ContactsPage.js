@@ -39,11 +39,24 @@ export const ContactsPage = ({ contacts, addContacts }) => {
   return (
     <div>
       <section>
-        <h2>Add Contact</h2> 
+        <h2>Add Contact</h2>
+        <ContactForm
+          handleSubmit={handleSubmit}
+          //name state/setState
+          currentName={currentName}
+          setCurrentName={setCurrentName}
+          //phone state/setState
+          currentPhone={currentPhone}
+          setCurrentPhone={setCurrentPhone}
+          //email state/setState
+          currentEmail={currentEmail}
+          setCurrentEmail={setCurrentEmail}
+        />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
+        <TileList /**App state contacts prop */ contacts={contacts} />
       </section>
     </div>
   );
