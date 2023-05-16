@@ -8,6 +8,10 @@ export const ContactsPage = () => {
   Define state variables for 
   contact info and duplicate check
   */
+  const [currentName, setCurrentName] = useState("");
+  const [currentPhone, setCurrentPhone] = useState("");
+  const [currentEmail, setCurrentEmail] = useState("");
+  const [duplicate, setDuplicate] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
