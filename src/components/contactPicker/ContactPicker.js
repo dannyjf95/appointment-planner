@@ -9,7 +9,10 @@ export const ContactPicker = ({ contacts, name, value, onChange }) => {
   // console.log(mappedContacts)
   return (
     <>
-      
+      <select onChange={onChange} value={value} name={name}>
+        <option value="">Select Contact</option>
+        {mappedContacts}
+      </select>
     </>
   );
 };
