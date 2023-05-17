@@ -6,7 +6,6 @@ const getTodayString = (/**removed empty object */) => {
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 };
 
-
 export const AppointmentForm = ({
   contacts,
   currentName,
@@ -29,20 +28,29 @@ export const AppointmentForm = ({
   const handleTime = ({ target }) => {
     setCurrentTime(target.value);
   };
-
+  const handleContacts = ({ target }) => {
+    setCurrentContact(target.value);
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input
+          name="name"
           type="text"
           value={currentName}
-          placeholder=""
           aria-label="Contact Name"
           onChange={handleName}
+          placeholder="Nature of meeting"
           // required
         />
-        <ContactPicker contacts={contacts} />
+        <ContactPicker
+          name="contact selector"
+          contacts={contacts}
+          value={currentContact}
+          onChange={handleContacts}
+        />
         <input
+          name="date"
           type="date"
           value={currentDate}
           placeholder=""
@@ -52,6 +60,7 @@ export const AppointmentForm = ({
           // required
         />
         <input
+          name="time"
           type="time"
           value={currentTime}
           aria-label="Time selector"
@@ -59,7 +68,7 @@ export const AppointmentForm = ({
 
           // required
         />
-        <input type="submit" aria-label="Add Appointment" />
+        <input type="Submit" aria-label="Add Appointment" />
       </form>
     </>
   );

@@ -8,6 +8,8 @@ export const AppointmentsPage = ({
   addAppointments,
   contacts,
 }) => {
+  // console.log(appointments)
+  
   /*
   Define state variables for 
   appointment info

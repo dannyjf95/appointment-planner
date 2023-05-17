@@ -15,14 +15,8 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
-  const [contacts, setContacts] = useState([
-    { name: "Dan", phone: 123, email: "example@example.com" },
-    { name: "Amy", phone: 456, email: "example1@example.com" },
-    { name: "Harry", phone: 789, email: "example2@example.com" },
-  ]);
-  const [appointments, setAppointments] = useState([
-    {name: 'business Meeting', contact: 'Dan', date: '25th october', time: 1100}
-  ]);
+  const [contacts, setContacts] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   /*
   Implement functions to add data to
@@ -40,18 +34,17 @@ function App() {
     ]);
   };
 
-  const addAppointments = ({ name, contact, date, time }) => {
-  setAppointments([
-    ...appointments,
-    {
-      name: name,
-      contact: contact,
-      date: date,
-      time: time,
-    },
-  ]);
-};
-
+  const addAppointments = (name, contact, date, time) => {
+    setAppointments([
+      ...appointments,
+      {
+        name: name,
+        contact: contact,
+        date: date,
+        time: time,
+      },
+    ]);
+  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
