@@ -27,8 +27,8 @@ export const ContactForm = ({
           value={currentName}
           onChange={handleName}
           placeholder="Contact Name"
-          required
           aria-label="Contacts Full Name"
+          // required
         />
         {/** */}
         <input
@@ -36,8 +36,8 @@ export const ContactForm = ({
           value={currentEmail}
           onChange={handleEmail}
           placeholder="Contact Email"
-          required
           aria-label="Contacts Email Address"
+          // required
         />
         {/** */}
         <input
@@ -45,9 +45,9 @@ export const ContactForm = ({
           value={currentPhone}
           onChange={handlePhone}
           placeholder="Contact Phone Number (+44)"
-          required
           // pattern="/^(?:\+44|0)\d{10}$/"
           aria-label="Contacts Phone Number"
+          // required
         />
         <input type="Submit" aria-label="Add Contact" />
       </form>

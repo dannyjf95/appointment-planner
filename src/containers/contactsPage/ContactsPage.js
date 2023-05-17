@@ -25,11 +25,7 @@ export const ContactsPage = ({ contacts, addContacts }) => {
     e.preventDefault();
     /*Add contact info and clear data if the contact name is not a duplicate */
     if (!duplicate) {
-      addContacts({
-        name: currentName,
-        phone: currentPhone,
-        email: currentEmail,
-      });
+      addContacts(currentName, currentEmail, currentPhone);
       setCurrentName("");
       setCurrentPhone("");
       setCurrentEmail("");
@@ -56,7 +52,7 @@ export const ContactsPage = ({ contacts, addContacts }) => {
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList /**App state contacts prop */ contactTiles={contacts} />
+        <TileList /**App state contacts */ bothTiles={contacts} />
       </section>
     </div>
   );
