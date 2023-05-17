@@ -1,14 +1,16 @@
 import React from "react";
 import { ContactPicker } from "../contactPicker/ContactPicker";
-const getTodayString = ({}) => {
+
+const getTodayString = (/**removed empty object */) => {
   const [month, day, year] = new Date().toLocaleDateString("en-US").split("/");
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 };
 
+
 export const AppointmentForm = ({
   contacts,
-  currentTitle,
-  setTitle,
+  currentName,
+  setCurrentName,
   currentContact,
   setCurrentContact,
   currentDate,
@@ -17,8 +19,9 @@ export const AppointmentForm = ({
   setCurrentTime,
   handleSubmit,
 }) => {
-  const handleContact = ({ target }) => {
-    setCurrentContact(target.value);
+  //3 handlers for settingState
+  const handleName = ({ target }) => {
+    setCurrentName(target.value);
   };
   const handleDate = ({ target }) => {
     setCurrentDate(target.value);
@@ -32,10 +35,10 @@ export const AppointmentForm = ({
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={currentContact}
+          value={currentName}
           placeholder=""
           aria-label="Contact Name"
-          onChange={handleContact}
+          onChange={handleName}
           // required
         />
         <ContactPicker contacts={contacts} />
@@ -45,6 +48,7 @@ export const AppointmentForm = ({
           placeholder=""
           aria-label="Date selector"
           onChange={handleDate}
+          min={getTodayString()}
           // required
         />
         <input
@@ -52,6 +56,7 @@ export const AppointmentForm = ({
           value={currentTime}
           aria-label="Time selector"
           onChange={handleTime}
+
           // required
         />
         <input type="submit" aria-label="Add Appointment" />
