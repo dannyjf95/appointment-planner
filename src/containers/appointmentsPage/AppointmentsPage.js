@@ -9,7 +9,7 @@ export const AppointmentsPage = ({
   contacts,
 }) => {
   // console.log(appointments)
-  
+
   /*
   Define state variables for 
   appointment info
